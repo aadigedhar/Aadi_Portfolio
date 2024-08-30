@@ -59,16 +59,26 @@ Proven track record in computer vision, machine learning, and cloud technologies
 """)
 
 # Skills Section (with styling)
+# Skills Section (with improved grouping and styling)
 st.header("Skills")
-st.write("<div class='skill-section'>", unsafe_allow_html=True)
-all_skills = ["Python", "Generative AI", "Computer Vision", "NLP", "Machine Learning", 
-              "Data Visualization", "DataDog", "Git", "Docker", "Raspberry Pi & Arduino", "RESTful APIs",
-              "Django", "Flask", "TensorFlow", "PyTorch", "Keras", 
-              "AWS", "Azure", "Linux/Unix Administration", "Bash", "PowerShell",
-              "SQL/MySQL", "MongoDB"]
-for skill in all_skills:
-    st.write(f"<span class='skill-tag'>{skill}</span>", unsafe_allow_html=True)
-st.write("</div>", unsafe_allow_html=True)
+
+# Grouped Skills
+skill_groups = {
+    "Programming Languages": ["Python"],
+    "AI & ML": ["Generative AI", "Computer Vision", "NLP", "Machine Learning"],
+    "Web Frameworks": ["Django", "Flask"],
+    "Deep Learning": ["TensorFlow", "PyTorch", "Keras"],
+    "Cloud & DevOps": ["AWS", "Azure", "Docker"],
+    "Databases": ["SQL/MySQL", "MongoDB"],
+    "Other": ["Data Visualization", "DataDog", "Git", "Raspberry Pi & Arduino", "RESTful APIs", "Linux/Unix Administration", "Bash", "PowerShell"]
+}
+
+for group_name, skills in skill_groups.items():
+    st.write(f"**{group_name}**")
+    st.write("<div class='skill-group'>", unsafe_allow_html=True)
+    for skill in skills:
+        st.write(f"<span class='skill-tag'>{skill}</span>", unsafe_allow_html=True)
+    st.write("</div>", unsafe_allow_html=True)
 
 # Experience Section
 st.header("Experience")
