@@ -9,6 +9,7 @@ st.markdown("""
     margin-bottom: 20px;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5; /* Light background for better contrast */
 }
 .project-title {
     font-size: 24px;
@@ -23,8 +24,8 @@ st.markdown("""
     flex-wrap: wrap;
 }
 .skill-tag {
-    background-color: #eee;
-    color: #333;
+    background-color: #007bff; /* Bootstrap blue */
+    color: white;
     padding: 5px 10px;
     margin: 5px;
     border-radius: 3px;
@@ -35,12 +36,23 @@ st.markdown("""
 .experience-title {
     font-weight: bold;
 }
+.main-title {
+    text-align: center;
+    color: #007bff; /* Bootstrap blue */
+    margin-bottom: 30px;
+}
+.subheader {
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
 </style>
 """, unsafe_allow_html=True)
 
-# Title and Introduction
-st.title("Aaditya Gedhar")
-st.subheader("Python Developer & Computer Vision Engineer")
+# Title and Introduction (centered and styled)
+st.markdown(f"<h1 class='main-title'>Aaditya Gedhar</h1>", unsafe_allow_html=True)
+st.markdown("<h2 class='subheader'>Python Developer & Computer Vision Engineer</h2>", unsafe_allow_html=True)
 st.write("""
 Highly motivated and adaptable Python developer with 5+ years of experience in building and deploying AI-powered solutions. 
 Proven track record in computer vision, machine learning, and cloud technologies. Passionate about leveraging technology to solve real-world problems.
@@ -61,37 +73,33 @@ st.write("</div>", unsafe_allow_html=True)
 # Experience Section
 st.header("Experience")
 
-# Project Highlights (with detailed descriptions and styling)
+# Project Highlights (with detailed descriptions, styling, and expanders)
 st.subheader("Project Highlights")
 
 # Project 1
-with st.container():
+with st.expander("Generative AI Q&A Chatbot"):  # Use expander for better organization
     st.markdown("<div class='project-container'>", unsafe_allow_html=True)
-    st.markdown("<h3 class='project-title'>Generative AI Q&A Chatbot</h3>", unsafe_allow_html=True)
     # st.image("chatbot_image.jpg") 
     st.markdown("<p class='project-description'>Built a custom Generative AI Q&A chatbot that leverages OpenAI's GPT-4 and fine-tuned it on domain-specific data, stored in AWS S3 buckets, to provide accurate and contextually relevant responses to user queries. The chatbot utilizes sentence-transformers (all-MiniLM-L6-v2) for embedding and integrates with a database (MySQL/MongoDB) and Django for deployment.</p>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
 # Project 2
-with st.container():
+with st.expander("AWS Application Rebuilding"):
     st.markdown("<div class='project-container'>", unsafe_allow_html=True)
-    st.markdown("<h3 class='project-title'>AWS Application Rebuilding</h3>", unsafe_allow_html=True)
     # st.image("aws_image.jpg")
     st.markdown("<p class='project-description'>Designed and implemented a complete AWS architecture, encompassing VPC, LB, Lambda, EC2, RDS, Internet Gateway, Hosting, and CloudWatch. Migrated the operating system to the latest RHEL 9.2, upgraded the Python application from version 3.6 to 3.10, and configured Redis and ElasticSearch servers. Forwarded logs from CloudWatch to Datadog for monitoring.</p>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
 # Project 3
-with st.container():
+with st.expander("Digital Signage Player"):
     st.markdown("<div class='project-container'>", unsafe_allow_html=True)
-    st.markdown("<h3 class='project-title'>Digital Signage Player</h3>", unsafe_allow_html=True)
     # st.image("signage_image.jpg")
     st.markdown("<p class='project-description'>Developed a versatile digital signage player capable of displaying diverse content (HTML pages, website URLs, images, videos, PDFs) based on scheduling. The player is platform-independent, running seamlessly on Windows, Raspberry Pi, Linux, and Mac-OS using Python. It interacts with a backend API to check for new schedules and content updates.</p>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
 # Project 4
-with st.container():
+with st.expander("Footfall Analysis and Heatmap Generation"):
     st.markdown("<div class='project-container'>", unsafe_allow_html=True)
-    st.markdown("<h3 class='project-title'>Footfall Analysis and Heatmap Generation</h3>", unsafe_allow_html=True)
     # st.image("heatmap_image.jpg")
     st.markdown("<p class='project-description'>Created a computer vision model to track footfall in stores or malls, generating heatmaps that visualize visitor pathways. The model provides valuable insights into customer behavior and was deployed using Django in production and Flask for testing.</p>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
