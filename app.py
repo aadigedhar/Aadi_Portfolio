@@ -3,28 +3,14 @@ import streamlit as st
 # Overall Styling (Mimicking React/HTML/CSS feel)
 st.markdown("""
 <style>
-.project-container {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #f5f5f5; /* Light background for better contrast */
-}
-.project-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-}
-.project-description {
-    color: #555;
-}
-.skill-section {
+/* ... (rest of your existing CSS) ... */
+.skill-group {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 10px;
 }
 .skill-tag {
-    background-color: #007bff; /* Bootstrap blue */
+    background-color: #007bff; 
     color: white;
     padding: 5px 10px;
     margin: 5px;
@@ -38,7 +24,7 @@ st.markdown("""
 }
 .main-title {
     text-align: center;
-    color: #007bff; /* Bootstrap blue */
+    color: #007bff; 
     margin-bottom: 30px;
 }
 .subheader {
@@ -46,6 +32,13 @@ st.markdown("""
     border-bottom: 2px solid #eee;
     padding-bottom: 10px;
     margin-bottom: 20px;
+}
+.two-column-layout {
+    display: flex;
+    justify-content: space-between;
+}
+.column {
+    width: 48%; /* Adjust as needed for desired column width */
 }
 </style>
 """, unsafe_allow_html=True)
@@ -58,27 +51,38 @@ Highly motivated and adaptable Python developer with 5+ years of experience in b
 Proven track record in computer vision, machine learning, and cloud technologies. Passionate about leveraging technology to solve real-world problems.
 """)
 
-# Skills Section (with styling)
 # Skills Section (with improved grouping and styling)
 st.header("Skills")
 
-# Grouped Skills
+# Grouped Skills (using columns for better space utilization)
 skill_groups = {
-    "Programming Languages": ["Python"],
+    "Programming & Frameworks": ["Python", "Django", "Flask", "TensorFlow", "PyTorch", "Keras"],
     "AI & ML": ["Generative AI", "Computer Vision", "NLP", "Machine Learning"],
-    "Web Frameworks": ["Django", "Flask"],
-    "Deep Learning": ["TensorFlow", "PyTorch", "Keras"],
-    "Cloud & DevOps": ["AWS", "Azure", "Docker"],
-    "Databases": ["SQL/MySQL", "MongoDB"],
-    "Other": ["Data Visualization", "DataDog", "Git", "Raspberry Pi & Arduino", "RESTful APIs", "Linux/Unix Administration", "Bash", "PowerShell"]
+    "Cloud & DevOps": ["AWS", "Azure", "Docker", "Git", "DataDog"],
+    "Databases & Tools": ["SQL/MySQL", "MongoDB", "Raspberry Pi & Arduino", "RESTful APIs", "Linux/Unix Administration", "Bash", "PowerShell", "Data Visualization"]
 }
 
-for group_name, skills in skill_groups.items():
-    st.write(f"**{group_name}**")
-    st.write("<div class='skill-group'>", unsafe_allow_html=True)
-    for skill in skills:
-        st.write(f"<span class='skill-tag'>{skill}</span>", unsafe_allow_html=True)
-    st.write("</div>", unsafe_allow_html=True)
+# Create two columns for skill groups
+col1, col2 = st.columns(2)
+
+# Display skill groups in columns
+with col1:
+    for group_name, skills in list(skill_groups.items())[:2]:  # First two groups in the first column
+        st.write(f"**{group_name}**")
+        st.write("<div class='skill-group'>", unsafe_allow_html=True)
+        for skill in skills:
+            st.write(f"<span class='skill-tag'>{skill}</span>", unsafe_allow_html=True)
+        st.write("</div>", unsafe_allow_html=True)
+
+with col2:
+    for group_name, skills in list(skill_groups.items())[2:]:  # Remaining groups in the second column
+        st.write(f"**{group_name}**")
+        st.write("<div class='skill-group'>", unsafe_allow_html=True)
+        for skill in skills:
+            st.write(f"<span class='skill-tag'>{skill}</span>", unsafe_allow_html=True)
+        st.write("</div>", unsafe_allow_html=True)
+
+# ... (rest of your code - Experience, Education, Mini-Projects, Contact) ...
 
 # Experience Section
 st.header("Experience")
